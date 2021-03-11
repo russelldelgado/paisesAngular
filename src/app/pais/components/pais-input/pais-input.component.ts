@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { Subject } from 'rxjs';
-import { debounceTime} from 'rxjs/Operators'
+import { debounceTime } from 'rxjs/Operators'
 
 @Component({
   selector: 'app-pais-input',
@@ -14,6 +14,7 @@ export class PaisInputComponent  implements OnInit{
   @Output() onDebounce : EventEmitter<string> = new EventEmitter; //este evento se va a emitir cuando la persona deja de escribir
 
   debouncer : Subject<string>= new Subject;
+  @Input() placeholder : string ='';
 
   termino : string ='';
   constructor() { }
